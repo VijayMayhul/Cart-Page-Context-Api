@@ -23,7 +23,7 @@ Through this task I learned why we use Context API and how to use context API.
 - Global State Management
 - Avoid Prop Drilling
 - Performance Optimization
-- 
+  
 <b>Usage</b>: 
 - <b>createContext()</b>:
 	- A context is created using the createContext function. It returns an object with a Provider and a Consumer
