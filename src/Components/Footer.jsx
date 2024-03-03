@@ -1,5 +1,4 @@
-import React from 'react'
-
+//Footer section as the copyright details of the webpage
 const Footer = () => {
   return (
     <>

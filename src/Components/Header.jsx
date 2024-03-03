@@ -1,10 +1,18 @@
+//Importing useContext hook to get data from our created context "myContext"
 import React, { useContext } from "react";
+
+//Importing myContext to use inside useContext to get data
 import { myContext } from "../ContextComponent";
+
+//Importing fontawesome to use icons in our project
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
+
+  //fetching data using useContext hook
   let { cartData } = useContext(myContext);
+  
   return (
     <>
       <header>

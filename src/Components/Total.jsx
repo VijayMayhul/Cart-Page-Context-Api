@@ -1,13 +1,22 @@
-import React, { useContext, useState } from "react";
+//Importing useContext hook to get data from our created context "myContext"
+import React, { useContext} from "react";
+
+//Importing myContext to use inside useContext to get data
 import { myContext } from "../ContextComponent";
 
 
 const Total = () => {
+
+  //fetching data using useContext hook
   const { cartData} = useContext(myContext);
+
+  //through the fetched data, we are getting the total products quantity value by using the reduce method
   let totalQuan = cartData.reduce(
     (initVal, cart) => initVal + (cart.quantity || 1),
     0
   );
+
+  //through the fetched data, we are getting the total products Amount value by using the reduce method
   let totalAmount = cartData.reduce(
     (initVal, cart) => initVal + cart.price * (cart.quantity || 1),
     0

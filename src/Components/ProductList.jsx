@@ -1,14 +1,24 @@
+//Importing useContext hook to get data from our created context "myContext"
 import React, { useContext } from "react";
+
+//Importing myContext to use inside useContext to get data
 import { myContext } from "../ContextComponent";
+
+//Importing Total component
 import Total from "./Total";
+
+//Importing fontawesome to use icons in our project
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 
 const ProductList = () => {
+
+  //fetching and updating data using useContext hook
   const { cartData, setCartData } = useContext(myContext);
 
+  //through increaseQuantity function, we increase the quantity of a particular product
   const increaseQuantity = (id, qua) => {
     setCartData((prevVal) => {
       return prevVal.map((cart) => {
@@ -21,6 +31,7 @@ const ProductList = () => {
     });
   };
 
+  //through decreaseQuantity function, we decrease the quantity of a particular product
   const decreaseQuantity = (id, qua) => {
     setCartData((prevVal) => {
       return prevVal.map((cart) => {
@@ -33,6 +44,7 @@ const ProductList = () => {
     });
   };
 
+  //through removeCart function, we remove the particular product from the cartData
   const removeCart = (id) => {
     let deletedCartData = cartData.filter((cart) => cart.id !== id);
     setCartData(deletedCartData);
@@ -42,6 +54,8 @@ const ProductList = () => {
     <>
       <div className="container pt-5 product-container position-relative">
         <div className="row d-flex justify-content-center mb-4">
+          {/* If cartData empty means it shows the Your Cart is Empty, else it will show the card,
+          as per the product count */}
           {cartData.length === 0 ? (
             <h3 className="h3 text-center py-3">Your Cart is Empty</h3>
           ) : (
